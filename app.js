@@ -1,6 +1,8 @@
-const express = require("express");
+import express from "express";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env" });
 const app = express();
-const PORT = 3000;
 
 // Ruta básica
 app.get("/", (req, res) => {
@@ -8,6 +10,7 @@ app.get("/", (req, res) => {
 });
 
 // Inicia el servidor
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });
