@@ -1,16 +1,22 @@
 import express from "express";
+import connection from "./config/db.js"
 import dotenv from "dotenv";
+
+import usuarioRoutes from "./routes/usuarioRoutes.js";
+import protectedRoutes from './routes/protectedRoutes.js';
 
 dotenv.config({ path: ".env" });
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Ruta básica
-app.get("/", (req, res) => {
-  res.send("¡Hola, mundo desde Express!");
-});
+// Middleware para manejar JSON
+app.use(express.json());
+
+// Routing
+app.use("/auth", usuarioRoutes);
+app.use('/api', protectedRoutes);
 
 // Inicia el servidor
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
