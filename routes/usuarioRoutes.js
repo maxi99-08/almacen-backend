@@ -5,8 +5,7 @@ import {
   updateUsuario,
   listarUsuarios,
   listarUsuario,
-  eliminarUsuario,
-  prueba,
+  eliminarUsuario
 } from "../controllers/usuarioController.js";
 import authMiddleware from "../middlewares/authMiddleware.js"; // Asegúrate de que la ruta sea correcta
 
