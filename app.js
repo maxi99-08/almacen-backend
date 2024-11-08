@@ -3,6 +3,7 @@ import connection from "./config/db.js"
 import dotenv from "dotenv";
 
 import usuarioRoutes from "./routes/usuarioRoutes.js";
+import rolesRoutes from "./routes/rolesRoutes.js";
 import protectedRoutes from './routes/protectedRoutes.js';
 
 dotenv.config({ path: ".env" });
@@ -13,8 +14,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Routing
+
+// Rutas para usuarios
 app.use("/auth", usuarioRoutes);
+// Rutas para roles
+app.use('/api/roles', rolesRoutes);
+
 app.use('/api', protectedRoutes);
+
 
 // Inicia el servidor
 app.listen(PORT, () => {
