@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import usuarioRoutes from "./routes/usuarioRoutes.js";
 import rolesRoutes from "./routes/rolesRoutes.js";
 import protectedRoutes from './routes/protectedRoutes.js';
+import caracteristicaRoutes from './routes/caracteristicaRoutes.js';
+
 
 dotenv.config({ path: ".env" });
 const app = express();
@@ -19,6 +21,8 @@ app.use(express.json());
 app.use("/auth", usuarioRoutes);
 // Rutas para roles
 app.use('/api/roles', rolesRoutes);
+// Rutas para caracteristicas
+app.use('/api/caracteristicas', caracteristicaRoutes);
 
 app.use('/api', protectedRoutes);
 
