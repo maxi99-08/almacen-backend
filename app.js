@@ -6,6 +6,7 @@ import usuarioRoutes from "./routes/usuarioRoutes.js";
 import rolesRoutes from "./routes/rolesRoutes.js";
 import protectedRoutes from './routes/protectedRoutes.js';
 import caracteristicaRoutes from './routes/caracteristicaRoutes.js';
+import proveedorRoutes from './routes/proveedoresRoutes.js'
 
 
 dotenv.config({ path: ".env" });
@@ -23,6 +24,8 @@ app.use("/auth", usuarioRoutes);
 app.use('/api/roles', rolesRoutes);
 // Rutas para caracteristicas
 app.use('/api/caracteristicas', caracteristicaRoutes);
+//Rutas para Proveedores
+app.use("/api/proveedores", proveedorRoutes);
 
 app.use('/api', protectedRoutes);
 
