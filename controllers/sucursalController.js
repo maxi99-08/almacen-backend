@@ -12,13 +12,11 @@ const crearSucursal = async (req, res) => {
           .status(500)
           .json({ message: "Error al crear la sucursal", error: 1 });
       }
-      res
-        .status(201)
-        .json({
-          message: "Sucursal creada con éxito",
-          id: results.insertId,
-          error: 0,
-        });
+      res.status(201).json({
+        message: "Sucursal creada con éxito",
+        id: results.insertId,
+        error: 0,
+      });
     });
   } catch (error) {
     res.status(500).json({ message: "Error en el servidor", error: 1 });
@@ -141,11 +139,10 @@ const activarSucursal = async (req, res) => {
 };
 
 export {
-    crearSucursal,
-    obtenerSucursales,
-    obtenerSucursalPorId,
-    updateSucursal,
-    desactivarSucursal,
-    activarSucursal
-  };
-  
+  crearSucursal,
+  obtenerSucursales,
+  obtenerSucursalPorId,
+  updateSucursal,
+  desactivarSucursal,
+  activarSucursal,
+};
