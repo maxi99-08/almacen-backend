@@ -1,5 +1,4 @@
 import express from "express";
-import connection from "./config/db.js"
 import dotenv from "dotenv";
 
 import usuarioRoutes from "./routes/usuarioRoutes.js";
@@ -7,7 +6,7 @@ import rolesRoutes from "./routes/rolesRoutes.js";
 import protectedRoutes from './routes/protectedRoutes.js';
 import caracteristicaRoutes from './routes/caracteristicaRoutes.js';
 import proveedorRoutes from './routes/proveedoresRoutes.js'
-
+import sucursalRoutes from "./routes/sucursalRoutes.js";
 
 dotenv.config({ path: ".env" });
 const app = express();
@@ -26,6 +25,8 @@ app.use('/api/roles', rolesRoutes);
 app.use('/api/caracteristicas', caracteristicaRoutes);
 //Rutas para Proveedores
 app.use("/api/proveedores", proveedorRoutes);
+//Rutas para Sucursales
+app.use("/api/sucursales", sucursalRoutes);
 
 app.use('/api', protectedRoutes);
 
