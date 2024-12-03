@@ -7,6 +7,7 @@ import protectedRoutes from './routes/protectedRoutes.js';
 import caracteristicaRoutes from './routes/caracteristicaRoutes.js';
 import proveedorRoutes from './routes/proveedoresRoutes.js'
 import sucursalRoutes from "./routes/sucursalRoutes.js";
+import productoRoutes from "./routes/productoRoutes.js";
 
 dotenv.config({ path: ".env" });
 const app = express();
@@ -27,6 +28,8 @@ app.use('/api/caracteristicas', caracteristicaRoutes);
 app.use("/api/proveedores", proveedorRoutes);
 //Rutas para Sucursales
 app.use("/api/sucursales", sucursalRoutes);
+//Rutas para Productos
+app.use("/api/productos", productoRoutes);
 
 app.use('/api', protectedRoutes);
 
