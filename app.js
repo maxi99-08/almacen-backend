@@ -5,9 +5,10 @@ import usuarioRoutes from "./routes/usuarioRoutes.js";
 import rolesRoutes from "./routes/rolesRoutes.js";
 import protectedRoutes from './routes/protectedRoutes.js';
 import caracteristicaRoutes from './routes/caracteristicaRoutes.js';
-import proveedorRoutes from './routes/proveedoresRoutes.js'
+import proveedorRoutes from './routes/proveedorRoutes.js'
 import sucursalRoutes from "./routes/sucursalRoutes.js";
 import productoRoutes from "./routes/productoRoutes.js";
+import movimientoRoutes from "./routes/movimientoRoutes.js";
 
 dotenv.config({ path: ".env" });
 const app = express();
@@ -30,6 +31,9 @@ app.use("/api/proveedores", proveedorRoutes);
 app.use("/api/sucursales", sucursalRoutes);
 //Rutas para Productos
 app.use("/api/productos", productoRoutes);
+//Rutas para movimientos
+app.use("/api/movimientos", movimientoRoutes);
+
 
 app.use('/api', protectedRoutes);
 
